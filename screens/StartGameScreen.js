@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Card from "../components/Card";
 
-const StartGameScreen = () => {
+const StartGameScreen = ({ onStartGame }) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -30,7 +30,10 @@ const StartGameScreen = () => {
     confirmedOutput = (
       <View style={styles.summaryContainer}>
         <Text>Chosen Number : {selectedNumber}</Text>
-        <Button title="Start Game" />
+        <Button
+          title="Start Game"
+          onPress={() => onStartGame(selectedNumber)}
+        />
       </View>
     );
   }
